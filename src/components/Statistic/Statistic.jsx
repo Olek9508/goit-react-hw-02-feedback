@@ -18,57 +18,80 @@ state = {
   bad: this.props.bad,
     }
 
-    addPoint = () => {
+        handleAddPointGood = () => {
         this.setState(prevState => ({
-        good: prevState.good + 1,
-        neutral: prevState.neutral + 1,
-        bad: prevState.bad + 1,
+            good: prevState.good + 1,
+        }))
+    }
+        handleAddPointNeutral = () => {
+        this.setState(prevState => ({
+            neutral: prevState.neutral + 1,
+        }))
+    }
+
+        handleAddPointBad = () => {
+        this.setState(prevState => ({
+            bad: prevState.bad + 1,
         }))
     }
     
-    // handleAddPointGood = () => {
-    //     this.setState(prevState => ({
-    //         good: prevState.good + 1,
-    //     }))
-    // }
-    //     handleAddPointNeutral = () => {
-    //     this.setState(prevState => ({
-    //         neutral: prevState.neutral + 1,
-    //     }))
-    // }
+    // countTotalFeedback() {
+    //     const values = Object.values(this.defaultProps)
+    //     let totalAmount = 0;
 
-    //     handleAddPointBad = () => {
-    //     this.setState(prevState => ({
-    //         bad: prevState.bad + 1,
-    //     }))
-    // }
-
-    countTotalFeedback() { };
+    //     for (let value of values) {
+            
+    //         totalAmount += value
+    //         console.log(totalAmount)
+    //     }
+    //     return
+    //  };
 
     countPositiveFeedbackPercentage() { };
     
     render() {
+
+        const { good, neutral, bad } = this.state;
+        const { total, positivePercentage } = this.props;
+        const { handleAddPointGood, handleAddPointNeutral, handleAddPointBad } = this;
+        
         return (
     <div>
         <div>
             <h2>Please leave feedback</h2>
-                <button type="button" onClick={this.addPoint}>Good: {this.state.good}</button>
-                <button type="button" onClick={this.addPoint}>Neutral: {this.state.neutral}</button>
-                <button type="button" onClick={this.addPoint}>Bad: {this.state.bad}</button>
+                <button type="button" onClick={handleAddPointGood}>Good: {good}</button>
+                <button type="button" onClick={handleAddPointNeutral}>Neutral: {neutral}</button>
+                <button type="button" onClick={handleAddPointBad}>Bad: {bad}</button>
         </div>
                 
 
         <div>
         <h2>Statistics</h2>
         <ul>
-            <li>Good: {this.state.good}</li>
-            <li>Neutral:{this.state.neutral}</li>
-            <li>Bad:{this.state.bad}</li>       
-            <li>Total:{this.props.total }</li>
-            <li>Positive feedback:{this.props.positivePercentage }</li>
+            <li>Good: {good}</li>
+            <li>Neutral:{neutral}</li>
+            <li>Bad:{bad}</li>       
+            <li>Total:{total}</li>
+            <li>Positive feedback:{positivePercentage }</li>
         </ul>
         </div>
     </div>
         )
     }
 }
+
+
+
+
+    //===================================================================
+    
+        // addPoint = () => {
+    //     this.setState(prevState => ({
+    //     good: prevState.good + 1,
+    //     neutral: prevState.neutral + 1,
+    //     bad: prevState.bad + 1,
+    //     }))
+    // }
+
+
+    //===================================================================
