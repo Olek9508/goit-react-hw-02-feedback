@@ -8,6 +8,3 @@ export const Container = styled.div`
   margin-right: auto;`
   ;
     
-export const Section = styled.section`
-  padding-top: 50px;
-`
