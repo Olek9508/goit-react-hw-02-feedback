@@ -3,7 +3,7 @@ import { Section } from "components/Section/Section";
 import { Notification } from "components/Notificate/Notification";
 import { Statistics } from "../Statistic/Statistic";
 import { FeedbackOptions } from "../Feeedback/FeedbackOptions"
-import { Container } from "./App.styled";
+import { Container, InnerContainer } from "./App.styled";
 
 export class App extends Component{
   state = {
@@ -37,14 +37,16 @@ export class App extends Component{
       const { good, neutral, bad } = this.state;
         
       return (
-          <Container>
-          <div>
-            <FeedbackOptions
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.onHandleClick}                   
-            />
+        <Container>
+          <InnerContainer>
+            <Section title="Please leave your feedback">
+              <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.onHandleClick}                   
+              />
+            </Section>
 
-            <Section title="Statisctics">
+            <Section title="Statistics">
               {this.countTotalFeedback() > 0 ?( <Statistics
               good={good}
               neutral={neutral}
@@ -55,7 +57,7 @@ export class App extends Component{
               : (<Notification message="There is no feedback"/>)
             }
               </Section>
-          </div>
+          </InnerContainer>
           </Container>
         )
     }
