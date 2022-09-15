@@ -1,4 +1,6 @@
-export const Statistics = ({good, neutral, bad, total, positiveFeedbackPercentage }) => {
+import PropTypes from 'prop-types';
+
+export const Statistics = ({ good, neutral, bad, total, positiveFeedbackPercentage }) => {
     return (
     <div>
         <p>Good: {good}</p>
@@ -9,6 +11,16 @@ export const Statistics = ({good, neutral, bad, total, positiveFeedbackPercentag
     </div>
     )
 }
+
+Statistics.propTypes = {
+    good: PropTypes.string.isRequired,
+    neutral: PropTypes.string.isRequired,
+    bad: PropTypes.string.isRequired,
+    total: PropTypes.number.isRequired,
+    positiveFeedbackPercentage: PropTypes.number.isRequired
+}
+
+
 
 
 
