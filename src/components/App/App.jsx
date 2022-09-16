@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Section } from "components/Section/Section";
-import { Notification } from "components/Notificate/Notification";
+import { Notification } from "components/Notification/Notification";
 import { Statistics } from "../Statistic/Statistic";
 import { FeedbackOptions } from "../Feeedback/FeedbackOptions"
 import { Container, InnerContainer } from "./App.styled";
